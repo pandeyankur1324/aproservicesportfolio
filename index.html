@@ -18,6 +18,8 @@
   <script src="https://static.parastorage.com/unpkg/focus-within-polyfill@5.0.9/dist/focus-within-polyfill.js" nomodule=""></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch" nomodule=""></script>
 
+  <!-- js link -->
+  <script src="index.js"></script>
   <!-- Performance API Polyfills -->
   <script>
   (function () {
@@ -292,10 +294,231 @@ Shouldering complete software and graphic development project pipeline or it's p
   <meta name="twitter:description" content="We craft holistic, people- friendly digital experiences.
 Shouldering complete software and graphic development project pipeline or it's part of mid and large enterprises to support their business growth."/>
   <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/roboto/v18/e7MeVAyvogMqFwwl61PKhPesZW2xOQ-xsNqO47m55DA.woff2" crossorigin>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300');
+ .flex-center {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ * {
+	 box-sizing: border-box;
+	 font-family: 'Open Sans', sans-serif;
+	 font-weight: 300;
+}
+ a, a:visited, a:hover, a:active {
+	 color: inherit;
+	 text-decoration: none;
+}
+ h1 {
+	 font-family: 'Pacifico', cursive;
+	 font-weight: 400;
+	 font-size: 3em;
+	 text-align: center;
+}
+ .outer-menu {
+	 position: fixed;
+	 top: 12vh;
+	 right: 12vh;
+	 z-index: 1;
+   display: none;
+}
+ .outer-menu .checkbox-toggle {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 z-index: 2;
+	 cursor: pointer;
+	 width: 60px;
+	 height: 60px;
+	 opacity: 0;
+}
+ .outer-menu .checkbox-toggle:checked + .hamburger > div {
+	 transform: rotate(135deg);
+}
+ .outer-menu .checkbox-toggle:checked + ._3hLVS._2_v7X {
+   display: none;
+}
+ .outer-menu .checkbox-toggle:checked + .hamburger > div:before, .outer-menu .checkbox-toggle:checked + .hamburger > div:after {
+	 top: 0;
+	 transform: rotate(90deg);
+}
+ .outer-menu .checkbox-toggle:checked + .hamburger > div:after {
+	 opacity: 0;
+}
+ .outer-menu .checkbox-toggle:checked ~ .menu {
+	 pointer-events: auto;
+	 visibility: visible;
+}
+ .outer-menu .checkbox-toggle:checked ~ .menu > div {
+	 transform: scale(1);
+	 transition-duration: .75s;
+}
+ .outer-menu .checkbox-toggle:checked ~ .menu > div > div {
+	 opacity: 1;
+	 transition: opacity .4s ease .4s;
+}
+ .outer-menu .checkbox-toggle:hover + .hamburger {
+	 box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+ .outer-menu .checkbox-toggle:checked:hover + .hamburger > div {
+	 transform: rotate(225deg);
+}
+ .outer-menu .hamburger {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 z-index: 1;
+	 width: 60px;
+	 height: 60px;
+	 padding: .5em 1em;
+	 background: transparent;
+	 border-radius: 0 .12em .12em 0;
+	 cursor: pointer;
+	 transition: box-shadow .4s ease;
+	 backface-visibility: hidden;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .outer-menu .hamburger > div {
+	 position: relative;
+	 flex: none;
+	 width: 100%;
+	 height: 2px;
+	 background: black;
+	 transition: all .4s ease;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .outer-menu .hamburger > div:before, .outer-menu .hamburger > div:after {
+	 content: '';
+	 position: absolute;
+	 z-index: 1;
+	 top: -10px;
+	 left: 0;
+	 width: 100%;
+	 height: 2px;
+	 background: inherit;
+	 transition: all .4s ease;
+}
+ .outer-menu .hamburger > div:after {
+	 top: 10px;
+}
+ .outer-menu .menu {
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 pointer-events: none;
+	 visibility: hidden;
+	 overflow: hidden;
+	 backface-visibility: hidden;
+	 outline: 1px solid transparent;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .outer-menu .menu > div {
+	 width: 200vw;
+	 height: 200vw;
+	 color: black;
+	 background: rgba(180, 180, 180, 1);
+	 border-radius: 50%;
+	 transition: all .4s ease;
+	 flex: none;
+	 transform: scale(0);
+	 backface-visibility: hidden;
+	 overflow: hidden;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .outer-menu .menu > div > div {
+	 text-align: center;
+	 max-width: 90vw;
+	 max-height: 100vh;
+	 opacity: 0;
+	 transition: opacity .4s ease;
+	 overflow-y: auto;
+	 flex: none;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .outer-menu .menu > div > div > ul {
+	 list-style: none;
+	 padding: 0 1em;
+	 margin: 0;
+	 display: block;
+	 max-height: 100vh;
+}
+ .outer-menu .menu > div > div > ul > li {
+	 padding: 0;
+	 margin: 1em;
+	 font-size: 24px;
+	 display: block;
+}
+ .outer-menu .menu > div > div > ul > li > a {
+	 position: relative;
+	 display: inline;
+	 cursor: pointer;
+	 transition: color .4s ease;
+}
+ .outer-menu .menu > div > div > ul > li > a:hover {
+	 color: #e5e5e5;
+}
+ .outer-menu .menu > div > div > ul > li > a:hover:after {
+	 width: 100%;
+}
+ .outer-menu .menu > div > div > ul > li > a:after {
+	 content: '';
+	 position: absolute;
+	 z-index: 1;
+	 bottom: -0.15em;
+	 left: 0;
+	 width: 0;
+	 height: 2px;
+	 background: #e5e5e5;
+	 transition: width .4s ease;
+}
 
+@media (max-width: 1020px){
+  .outer-menu{
+    display: block;
+  }
+}
+ 
+</style>
 
 </head>
 <body class='responsive' >
+  <div class="outer-menu">
+  <input class="checkbox-toggle" type="checkbox" />
+  <div class="hamburger">
+    <div></div>
+  </div>
+  <div class="menu">
+    <div>
+      <div>
+        <ul>
+          <li><a href="#">Flyers</a></li>
+          <li><a href="#">T-shirt Design</a></li>
+          <li><a href="#">Labels Design</a></li>
+          <li><a href="#">Logos</a></li>
+          <li><a href="#">Brochures</a></li>
+          <li><a href="#">Infographics</a></li>
+          <li><a href="#">Banners</a></li>
+          <li><a href="#">Business Card</a></li>
+          <li><a href="#">Poster</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
     var bodyCacheable = true;
     
@@ -1389,24 +1612,15 @@ unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+
 #comp-ka0sh78f { --minViewportSize:320;--maxViewportSize:750 }}
 </style></pages-css>
 <div id="SITE_CONTAINER"><div id="main_MF"><div id="SCROLL_TO_TOP" class="qhwIj ignore-focus" tabindex="-1" role="region" aria-label="top of page"> </div><div id="WIX_ADS" class="_3hLVS _2_v7X"><a data-testid="linkElement" href="https://aproservices.netlify.app/"  rel="nofollow" class="qM9Gx"><span class="_2yqNC">Back To Main </span></a></div><div id="site-root"><div id="masterPage" class=""><div id="SITE_PAGES"><div id="TRANSITION_GROUP" class="_2YGAo"><div id="c1dmp" class="_1Bha0"><div class="_1I2VE"></div><div><div class="c1dmp-container" data-testid="responsive-container-content"><header id="comp-k5cfsti1" class="comp-k5cfsti1-container"><section id="comp-k5cfsti1_r_comp-k6gjwdd6" class="_3uJnK comp-k5cfsti1_r_comp-k6gjwdd6-container undefined" data-testid="section-container"><div id="comp-k5cfsti1_r_comp-ka0zwq4p" class="_1Q9if" data-testid="richTextElement"><p class="font_6"><a href="index.html" target="_self">aproservices</a></p></div><div id="comp-k5cfsti1_r_comp-ka52ys20" class="_3Fes4 comp-k5cfsti1_r_comp-ka52ys20-container"><div class="_2l-6d"></div><div id="comp-k5cfsti1_r_comp-ka532n6h" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/flyers.html" target="_self">Flyers</a></p></div><div id="comp-k5cfsti1_r_comp-ka53449a" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/logo.html" target="_self">Logos</a></p></div><div id="comp-k5cfsti1_r_comp-ka534r77" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/brochures.html" target="_self">Brochures</a></p></div><div id="comp-k5cfsti1_r_comp-ka2ldgfo" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/t-shirt-design.html" target="_self">T-shirt Design</a></p></div><div id="comp-k5cfsti1_r_comp-ka531rc6" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/infograhics.html" target="_self">Infographics</a></p></div><div id="comp-k5cfsti1_r_comp-ka5355tz" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/business-card.html" target="_self">Business Card</a></p></div><div id="comp-k5cfsti1_r_comp-ka535o6i" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/labels-design.html" target="_self">Labels Design</a></p></div><div id="comp-k5cfsti1_r_comp-ka5362nz" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/banners.html" target="_self">Banners</a></p></div><div id="comp-k5cfsti1_r_comp-ka536s9w" class="_1Q9if" data-testid="richTextElement"><p class="font_8"><a href="aproserviceswork/posters.html" target="_self">Posters</a></p></div></div><div id="comp-k5cfsti1_r_comp-kkmnzkul" class=""><div data-testid="svgRoot-comp-k5cfsti1_r_comp-kkmnzkul" class="_3bLYT _2OIRR N1N2o"><?xml version="1.0" encoding="UTF-8"?>
-<svg preserveAspectRatio="xMidYMid meet" data-bbox="21 21 158 158" viewBox="21 21 158 158" xmlns="http://www.w3.org/2000/svg" data-type="color" role="img" aria-labelledby="svgcid--ws0j6h-yea4gs"><defs><style>#comp-k5cfsti1_r_comp-kkmnzkul svg [data-color="1"] {fill: #FFFFFF;}
-#comp-k5cfsti1_r_comp-kkmnzkul svg [data-color="2"] {fill: #000000;}</style></defs><title id="svgcid--ws0j6h-yea4gs">Open Site Navigation</title>
-    <g>
-        <path fill="#ffffff" d="M35 64v90h-8V64h8z" data-color="1"/>
-        <path d="M145 69v6H55v-6h90z" fill="#000000" data-color="2"/>
-        <path d="M145 97v6H55v-6h90z" fill="#000000" data-color="2"/>
-        <path d="M145 125v6H55v-6h90z" fill="#000000" data-color="2"/>
-        <path d="M175 25v150H25V25h150m4-4H21v158h158V21z" fill="#000000" data-color="2"/>
-    </g>
-</svg>
+
 </div></div></section></header><main id="PAGE_SECTIONSc1dmp" class="xJqji"><section id="comp-ka0qakvc" class="_3uJnK comp-ka0qakvc-container undefined" data-testid="section-container"><div id="comp-ka0qbp2e" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0qbp2e img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/logo.html" target="_self" class=""><wix-image id="img-comp-ka0qbp2e" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0qbp2e&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_ce9ba7ca5d274302a010dd218bb638d7~mv2.png&quot;,&quot;width&quot;:1794,&quot;height&quot;:1798,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.22.59 PM.png&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_ce9ba7ca5d274302a010dd218bb638d7~mv2.png/v1/fill/w_245,h_246,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_22_59%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0qf64r" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0qf64r img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/logo.html" target="_self" class=""><wix-image id="img-comp-ka0qf64r" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0qf64r&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_3518de2cdcce4f058758d6f59b80d4f0~mv2.png&quot;,&quot;width&quot;:1792,&quot;height&quot;:1796,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.19.28 PM.png&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_3518de2cdcce4f058758d6f59b80d4f0~mv2.png/v1/fill/w_245,h_246,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_19_28%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0qjx70" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0qjx70 img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/logo.html" target="_self" class=""><wix-image id="img-comp-ka0qjx70" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0qjx70&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_460299d9e1f74db4802c5497fb31e398~mv2.png&quot;,&quot;width&quot;:1798,&quot;height&quot;:1796,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.12.24 PM.png&quot;,&quot;crop&quot;:{&quot;x&quot;:213,&quot;y&quot;:0,&quot;width&quot;:1371,&quot;height&quot;:1796,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;focalPoint&quot;:{&quot;x&quot;:50,&quot;y&quot;:50},&quot;scrollEffect&quot;:&quot;none&quot;}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_460299d9e1f74db4802c5497fb31e398~mv2.png/v1/crop/x_213,y_0,w_1371,h_1796/fill/w_187,h_245,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_12_24%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0qddj8" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0qddj8 img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/logo.html" target="_self" class=""><wix-image id="img-comp-ka0qddj8" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0qddj8&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_9492c0f1ab7741a3bca09eb6428294af~mv2.png&quot;,&quot;width&quot;:1790,&quot;height&quot;:1796,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.25.37 PM.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;scrollEffect&quot;:&quot;none&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_9492c0f1ab7741a3bca09eb6428294af~mv2.png/v1/fill/w_245,h_246,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_25_37%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0raoes" class="_1Q9if" data-testid="richTextElement"><h1 class="font_8">Logos</h1></div></section><section id="comp-ka0raodm" class="_3uJnK comp-ka0raodm-container undefined" data-testid="section-container"><div id="comp-ka0raoey5" class="_1Q9if" data-testid="richTextElement"><p class="font_8">Music Banner</p></div><div id="comp-ka0raoex2" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0raoex2 img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/banners.html" target="_self" class=""><wix-image id="img-comp-ka0raoex2" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0raoex2&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_4912c63e17f042fc8d26b9a0e8ee322e~mv2.png&quot;,&quot;width&quot;:2876,&quot;height&quot;:1440,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.32.43 PM.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;scrollEffect&quot;:&quot;none&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_4912c63e17f042fc8d26b9a0e8ee322e~mv2.png/v1/fill/w_245,h_123,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_32_43%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div></section><section id="comp-k9wu13q8" class="_3uJnK comp-k9wu13q8-container undefined" data-testid="section-container"><div id="comp-k9wuwkoo" class="_3Fes4 comp-k9wuwkoo-container"><div class="_2l-6d"></div><div id="comp-k9wuvlxf" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-k9wuvlxf img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/flyers.html" target="_self" class=""><wix-image id="img-comp-k9wuvlxf" data-image-info="{&quot;containerId&quot;:&quot;comp-k9wuvlxf&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_ba4fcda96e8742019f3dc4fad0a7b88f~mv2.png&quot;,&quot;width&quot;:1274,&quot;height&quot;:1800,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.36.36 PM.png&quot;,&quot;crop&quot;:{&quot;x&quot;:0,&quot;y&quot;:35,&quot;width&quot;:1274,&quot;height&quot;:1731,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;scrollEffect&quot;:&quot;none&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_ba4fcda96e8742019f3dc4fad0a7b88f~mv2.png/v1/crop/x_0,y_35,w_1274,h_1731/fill/w_245,h_333,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_36_36%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-k9wuvt97" class="_1Q9if" data-testid="richTextElement"><p class="font_8">Valentine-day Flyer</p></div></div><div id="comp-k9wuwplb" class="_3Fes4 comp-k9wuwplb-container"><div class="_2l-6d"></div><div id="comp-k9wuw15t" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-k9wuw15t img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/infograhics.html" target="_self" class=""><wix-image id="img-comp-k9wuw15t" data-image-info="{&quot;containerId&quot;:&quot;comp-k9wuw15t&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_21cb40afe25e4b8f85bb33ae221dc8a2~mv2.png&quot;,&quot;width&quot;:722,&quot;height&quot;:1798,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.39.47 PM.png&quot;,&quot;crop&quot;:{&quot;x&quot;:0,&quot;y&quot;:10,&quot;width&quot;:706,&quot;height&quot;:1779,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;focalPoint&quot;:{&quot;x&quot;:50,&quot;y&quot;:50},&quot;scrollEffect&quot;:&quot;none&quot;}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_21cb40afe25e4b8f85bb33ae221dc8a2~mv2.png/v1/crop/x_0,y_10,w_706,h_1779/fill/w_214,h_539,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_39_47%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-k9wuw4wk" class="_1Q9if" data-testid="richTextElement"><p class="font_8">Infographics</p></div></div></section><section id="comp-ka0qpvl3" class="_3uJnK comp-ka0qpvl3-container undefined" data-testid="section-container"><div id="comp-ka0r5hl1" class="_3Fes4 comp-ka0r5hl1-container"><div class="_2l-6d"></div><div id="comp-ka0qsedb" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0qsedb img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/brochures.html" target="_self" class=""><wix-image id="img-comp-ka0qsedb" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0qsedb&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_da58098ba0d9469daed751786deccd30~mv2.png&quot;,&quot;width&quot;:1800,&quot;height&quot;:1796,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.56.37 PM.png&quot;,&quot;crop&quot;:{&quot;x&quot;:0,&quot;y&quot;:4,&quot;width&quot;:1800,&quot;height&quot;:1787,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;focalPoint&quot;:{&quot;x&quot;:50,&quot;y&quot;:50},&quot;scrollEffect&quot;:&quot;none&quot;}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_da58098ba0d9469daed751786deccd30~mv2.png/v1/crop/x_0,y_4,w_1800,h_1787/fill/w_245,h_243,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_56_37%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0qvec7" class="_1Q9if" data-testid="richTextElement"><p class="socialmedia font_8">Social Media Design</p></div></div><div id="comp-ka0r0hu0" class="_1Q9if" data-testid="richTextElement"><p class="socialmedia font_8" style="text-align:left;">Social Media Design</p></div><div id="comp-ka0qzojn" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0qzojn img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/posters.html" target="_self" class=""><wix-image id="img-comp-ka0qzojn" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0qzojn&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_9569945f7f5d4653ab0d8719cdbf6dc3~mv2.png&quot;,&quot;width&quot;:1796,&quot;height&quot;:1800,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 1.48.16 PM.png&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_9569945f7f5d4653ab0d8719cdbf6dc3~mv2.png/v1/fill/w_245,h_246,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%201_48_16%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div></section><section id="comp-ka11hawa" class="_3uJnK comp-ka11hawa-container undefined" data-testid="section-container"><div id="comp-ka11hjxl" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka11hjxl img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/posters.html" target="_self" class=""><wix-image id="img-comp-ka11hjxl" data-image-info="{&quot;containerId&quot;:&quot;comp-ka11hjxl&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_f9992d18652140239d3e3b487447e0cd~mv2.png&quot;,&quot;width&quot;:2880,&quot;height&quot;:1708,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;game poster.png&quot;,&quot;crop&quot;:{&quot;x&quot;:0,&quot;y&quot;:202,&quot;width&quot;:2880,&quot;height&quot;:1321,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;focalPoint&quot;:{&quot;x&quot;:50,&quot;y&quot;:50},&quot;scrollEffect&quot;:&quot;none&quot;}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_f9992d18652140239d3e3b487447e0cd~mv2.png/v1/crop/x_0,y_202,w_2880,h_1321/fill/w_245,h_112,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/game%20poster.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka11k9dx" class="_1Q9if" data-testid="richTextElement"><p class="font_8">Game Poster</p></div></section><section id="comp-ka0rqz81" class="_3uJnK comp-ka0rqz81-container undefined" data-testid="section-container"><div id="comp-ka0s4yjd" class="_3Fes4 comp-ka0s4yjd-container"><div class="_2l-6d"></div><div id="comp-ka0rqz97" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0rqz97 img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/business-card.html" target="_self" class=""><wix-image id="img-comp-ka0rqz97" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0rqz97&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_6b90688ee3bb46bcb8086d4b2d5997fb~mv2.png&quot;,&quot;width&quot;:2004,&quot;height&quot;:1544,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-07 at 10.42.55 PM.png&quot;,&quot;crop&quot;:{&quot;x&quot;:0,&quot;y&quot;:0,&quot;width&quot;:2004,&quot;height&quot;:1544,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;focalPoint&quot;:{&quot;x&quot;:50,&quot;y&quot;:50},&quot;scrollEffect&quot;:&quot;none&quot;}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_6b90688ee3bb46bcb8086d4b2d5997fb~mv2.png/v1/fill/w_245,h_189,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-07%20at%2010_42_55%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0rqz9k" class="_1Q9if" data-testid="richTextElement"><p class="font_8">Business Card</p></div></div><div id="comp-ka0rqz9p" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0rqz9p img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/t-shirt-design.html" target="_self" class=""><wix-image id="img-comp-ka0rqz9p" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0rqz9p&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_da307620ec8b4d978af794442c9fabb4~mv2.png&quot;,&quot;width&quot;:1994,&quot;height&quot;:1492,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-07 at 11.01.40 PM.png&quot;,&quot;crop&quot;:{&quot;x&quot;:379,&quot;y&quot;:176,&quot;width&quot;:1237,&quot;height&quot;:1287,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;focalPoint&quot;:{&quot;x&quot;:50,&quot;y&quot;:50},&quot;scrollEffect&quot;:&quot;none&quot;}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_da307620ec8b4d978af794442c9fabb4~mv2.png/v1/crop/x_379,y_176,w_1237,h_1287/fill/w_176,h_183,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-07%20at%2011_01_40%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0rqz9q3" class="_1Q9if" data-testid="richTextElement"><p class="font_8">T-shirt Design</p></div></section><section id="comp-ka0sh773" class="_3uJnK comp-ka0sh773-container undefined" data-testid="section-container"><div id="comp-ka0sh78c" class="_3Fes4 comp-ka0sh78c-container"><div class="_2l-6d"></div><div id="comp-ka0sh78d2" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0sh78d2 img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/brochures.html" target="_self" class=""><wix-image id="img-comp-ka0sh78d2" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0sh78d2&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_7f301534adef42a4bbb64cc72843441f~mv2.png&quot;,&quot;width&quot;:1272,&quot;height&quot;:1794,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 2.19.34 PM.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;scrollEffect&quot;:&quot;none&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_7f301534adef42a4bbb64cc72843441f~mv2.png/v1/fill/w_245,h_346,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%202_19_34%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0sh78f" class="_1Q9if" data-testid="richTextElement"><p class="font_8">Food Menu Design</p></div></div><div id="comp-ka0sh7862" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka0sh7862 img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/business-card.html" target="_self" class=""><wix-image id="img-comp-ka0sh7862" data-image-info="{&quot;containerId&quot;:&quot;comp-ka0sh7862&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_d4d26b3a3e8941f99bdc2ef784785e4f~mv2.png&quot;,&quot;width&quot;:2328,&quot;height&quot;:1800,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 2.26.19 PM.png&quot;,&quot;focalPoint&quot;:null}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_d4d26b3a3e8941f99bdc2ef784785e4f~mv2.png/v1/fill/w_245,h_189,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%202_26_19%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div><div id="comp-ka0sh7891" class="_1Q9if" data-testid="richTextElement"><p class="font_8" style="text-align:left;">Home Brochure</p>
 
 <p class="font_8" style="text-align:left;">Design</p></div></section><section id="comp-ka26sfpy" class="_3uJnK comp-ka26sfpy-container undefined" data-testid="section-container"><div id="comp-ka26sfqy" data-testid="imageX" class="_1x22G"><style data-testid="scrollEffectStyle">#comp-ka26sfqy img { height:100%}</style><a data-testid="linkElement" href="aproserviceswork/banners.html" target="_self" class=""><wix-image id="img-comp-ka26sfqy" data-image-info="{&quot;containerId&quot;:&quot;comp-ka26sfqy&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;parallaxSpeed&quot;:1.5,&quot;sourceSets&quot;:[],&quot;imageData&quot;:{&quot;uri&quot;:&quot;1c8299_37641b110d2b49dba6154b3c77335162~mv2.png&quot;,&quot;width&quot;:2880,&quot;height&quot;:858,&quot;alt&quot;:&quot;&quot;,&quot;name&quot;:&quot;Screenshot 2022-02-11 at 2.30.10 PM.png&quot;,&quot;crop&quot;:{&quot;x&quot;:0,&quot;y&quot;:37,&quot;width&quot;:2880,&quot;height&quot;:784,&quot;svgId&quot;:&quot;&quot;,&quot;flip&quot;:&quot;none&quot;},&quot;displayMode&quot;:&quot;fill&quot;,&quot;focalPoint&quot;:{&quot;x&quot;:50,&quot;y&quot;:50},&quot;scrollEffect&quot;:&quot;none&quot;}}" data-has-ssr-src="true"><picture><img src="https://static.wixstatic.com/media/1c8299_37641b110d2b49dba6154b3c77335162~mv2.png/v1/crop/x_0,y_37,w_2880,h_784/fill/w_245,h_67,al_c,usm_0.66_1.00_0.01,blur_2,enc_auto/Screenshot%202022-02-11%20at%202_30_10%20PM.png" alt="" style="object-fit:cover;object-position:50% 50%"/></picture></wix-image></a></div></section><section id="comp-ka0tdnvk" class="_3uJnK comp-ka0tdnvk-container undefined" data-testid="section-container"><div id="comp-ka26sfr4" class="_1Q9if" data-testid="richTextElement"><p class="font_8">Social Platform Banner Design</p></div></section><div id="comp-kb7ws1yz" class="_1dFba comp-kb7ws1yz-container"><section id="comp-kb7ws1yz_r_comp-kb7w0bxb" class="_3uJnK comp-kb7ws1yz_r_comp-kb7w0bxb-container undefined" data-testid="section-container"><div id="comp-kb7ws1yz_r_comp-kb7w0bzx" class="_1Q9if" data-testid="richTextElement"><p class="font_0" style="text-align:center;"><span style="text-decoration:underline;"><a href="aproserviceswork/flyers.html" target="_self" data-anchor="SCROLL_TO_TOP">BACK TO TOP</a></span></p></div></section></div></main><footer id="comp-k5cfsti12" class="comp-k5cfsti12-container"><section id="comp-k5cfsti12_r_comp-k6gjwdge" class="_3uJnK comp-k5cfsti12_r_comp-k6gjwdge-container undefined" data-testid="section-container"><div id="comp-k5cfsti12_r_comp-ka0z10hw" class="_1Q9if" data-testid="richTextElement"><p class="font_7"><a href="https://aproservices.netlify.app/"  rel="noreferrer noopener">&copy; 2021&nbsp;by aproservices</a></p></div><div id="comp-k5cfsti12_r_comp-ka0z2p2r" class="_2UdPt"></div></section></footer><div id="comp-ka52id29-pinned-layer" class="riLfl"><div id="comp-ka52id29" class="_1dFba comp-ka52id29-container"><div id="comp-ka52id29_r_comp-ka52icny" tabindex="0" class="r_7z2"><div id="overlay-comp-ka52id29_r_comp-ka52icny" class="_1KHLP"></div><div id="container-comp-ka52id29_r_comp-ka52icny" class="_1KSoO"><div class="_2kps0"></div><div id="inlineContentParent-comp-ka52id29_r_comp-ka52icny" class="_1ZjYZ"><div class="comp-ka52id29_r_comp-ka52icny-overflow-wrapper _1ZjYZ" tabindex="0" data-testid="responsive-container-overflow"><div class="comp-ka52id29_r_comp-ka52icny-container" data-testid="responsive-container-content"><div id="comp-ka52id29_r_comp-kkmnzl13" class=""><div data-testid="svgRoot-comp-ka52id29_r_comp-kkmnzl13" class="_3bLYT _2OIRR N1N2o"><?xml version="1.0" encoding="UTF-8"?>
-<svg preserveAspectRatio="none" data-bbox="65.35 65.35 69.3 69.3" viewBox="65.35 65.35 69.3 69.3" xmlns="http://www.w3.org/2000/svg" data-type="shape" role=presentation aria-hidden=true aria-labelledby="svgcid--q8xhq2eg7e69"><title id="svgcid--q8xhq2eg7e69"></title>
-    <g>
-        <path d="M134.65 128.99L105.66 100l28.99-28.99-5.66-5.66L100 94.34 71.01 65.35l-5.66 5.66L94.34 100l-28.99 28.99 5.66 5.66L100 105.66l28.99 28.99 5.66-5.66z"/>
-    </g>
-</svg>
+// <svg preserveAspectRatio="none" data-bbox="65.35 65.35 69.3 69.3" viewBox="65.35 65.35 69.3 69.3" xmlns="http://www.w3.org/2000/svg" data-type="shape" role=presentation aria-hidden=true aria-labelledby="svgcid--q8xhq2eg7e69"><title id="svgcid--q8xhq2eg7e69"></title>
+//     <g>
+//         <path d="M134.65 128.99L105.66 100l28.99-28.99-5.66-5.66L100 94.34 71.01 65.35l-5.66 5.66L94.34 100l-28.99 28.99 5.66 5.66L100 105.66l28.99 28.99 5.66-5.66z"/>
+//     </g>
+// </svg>
 </div></div><nav id="comp-ka52id29_r_comp-kkmv60jc" aria-label="Site" class="Ng_4d"><ul class="_1W1vp"><li data-testid="comp-ka52id29_r_comp-kkmv60jc-0" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/brochures.html" target="_self" class="_20QND">Brochures</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-1" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/t-shirt-design.html" target="_self" class="_20QND">T-shirt Design</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-2" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/infograhics.html" target="_self" class="_20QND">Infographics</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-3" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/flyers.html" target="_self" class="_20QND">Flyers</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-4" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/business-card.html" target="_self" class="_20QND">Business Card</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-5" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/labels-design.html" target="_self" class="_20QND">Labels Design</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-6" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/banners.html" target="_self" class="_20QND">Banners</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-7" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/posters.html" target="_self" class="_20QND">Posters</a></span></div></li><li data-testid="comp-ka52id29_r_comp-kkmv60jc-8" class="_24LNX _11rUu"><div data-testid="itemWrapper" class="_3slSb"><span data-testid="linkWrapper" class="_2-VSr"><a data-testid="linkElement" href="aproserviceswork/logo.html" target="_self" class="_20QND">Logos</a></span></div></li></ul></nav></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="SCROLL_TO_BOTTOM" class="qhwIj ignore-focus" tabindex="-1" role="region" aria-label="bottom of page"> </div></div></div>
 
 <script>
@@ -1439,7 +1653,6 @@ unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+
 <!-- warmup data start -->
 <script type="application/json" id="wix-warmup-data">{"platform":{"ssrPropsUpdates":[],"ssrStyleUpdates":[]},"appsWarmupData":{}}</script>
 <!-- warmup data end -->
-
 
 
 
